@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --drop-shadow-blue: 0 0 10px #00f5ff;
+  --bg-color: #393D47;
+  --color-blue: #00f5ff;
+  --color-white: #ffffff;   
+}
+
+@layer utilities {
+  .bg-main-color {
+    background-color: var(--bg-color);
+  }
+  .custom-shadow {
+    filter: drop-shadow(var(--drop-shadow-blue));
+  }
+  .custom-border {
+    border-color: var(--color-white);
+    border-width: 2px;
+  }
+  .custom-btn {
+    padding: 0 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 300ms;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: translateX(2px);
+      transform: translateY(2px);
+    }
+  }
+
+  .color-main {
+    color: var(--color-blue);
+  }  
+}

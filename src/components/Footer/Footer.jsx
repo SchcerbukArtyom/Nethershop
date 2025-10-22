@@ -19,17 +19,17 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-row custom-shadow">
-                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out pr-2" href="#">
+                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out pr-2" href="/">
                     <Instagram className="text-xl text-white sm:text-3xl mx-auto hover:scale-105 duration-300 ease-in-out max-w-full hover:text-purple-700" />
                     <p className="text-sm text-white">Instagram</p>
                 </a>
 
-                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out pr-2" href="#">
+                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out pr-2" href="/">
                     <Facebook className="text-xl text-white sm:text-3xl mx-auto hover:scale-105 duration-300 ease-in-out max-w-full hover:text-blue-500" />
                     <p className="text-sm text-white">Facebook</p>
                 </a>
 
-                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out" href="#">
+                <a className="flex flex-col items-center hover:scale-110 duration-400 ease-in-out" href="/">
                     <Youtube className="text-xl text-white sm:text-3xl mx-auto hover:scale-105 duration-300 ease-in-out max-w-full hover:text-red-800" />
                     <p className="text-sm text-white">Youtube</p>
                 </a>

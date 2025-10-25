@@ -6,11 +6,15 @@ import Logo from '../../resources/FullLogo_Transparent_NoBuffer.png'
 
 const Footer = () => {
     return (
-        <footer className="w-full max-w-md sm:max-w-none lg:max-w-12xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 lg:gap-8 bg-main-color py-4 sm:py-3 px-4 sm:px-6 lg:px-8 mt-5 relative hover:shadow-lg duration-300"
+        <footer className="flex items-center justify-around w-full z-50 bg-main-color py-2 mt-5"
             role="contentinfo">
             <div className="custom-shadow">
                 <Link to={ROUTES.HOME}>
-                    <img src={Logo} alt="logo" className="w-20 sm:w-35 mx-auto hover:scale-105 duration-300 ease-in-out max-w-full" />
+                    <img 
+                        src={Logo} 
+                        alt="logo" 
+                        className="w-16 sm:w-32 mx-auto aspect-[3/1] max-w-full hover:scale-105 transition-transform duration-300 ease-in-out" 
+                    />
                 </Link>
             </div>
 

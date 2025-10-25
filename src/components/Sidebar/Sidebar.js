@@ -9,7 +9,7 @@ const Sidebar = () => {
 
 
     return (
-        <section className="hidden lg:block grid-cols-1 mt-3 bg-main-color rounded">
+        <section className="hidden lg:block mt-3 bg-main-color rounded">
             <div className="p-2">
                 <div className="text-white text-3xl font-semibold pb-3">CATEGORIES</div>
                 <nav>
@@ -28,10 +28,10 @@ const Sidebar = () => {
                     </ul>
                 </nav>
                 <div className="flex justify-between text-white">
-                    <Link to={ROUTES.HELP} className="block hover:scale-110">
+                    <Link to={ROUTES.HELP} className="block hover:scale-110 transition-transform duration-200">
                         Help
                     </Link>
-                    <Link to={ROUTES.TERMS} className="block hover:scale-110">
+                    <Link to={ROUTES.TERMS} className="block hover:scale-110 transition-transform duration-200">
                         Terms & Conditions
                     </Link>
                 </div>

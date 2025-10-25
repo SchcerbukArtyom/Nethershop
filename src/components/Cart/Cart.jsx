@@ -36,11 +36,13 @@ const Cart = () => {
                                 >
                                     
                                     <div className="flex-shrink-0 mb-3 lg:mb-0 lg:mr-4">
-                                        <div
-                                            className="rounded bg-center bg-cover w-full lg:w-32 h-48 lg:aspect-[16/9] bg-no-repeat"
-                                            style={{ backgroundImage: `url(${images[0]})` }}
-                                            role="img"
-                                            aria-label={`Product image: ${title}`}
+                                        
+                                        <img 
+                                            src={images[0]} 
+                                            alt={`Product image: ${title}`} 
+                                            className="rounded w-full lg:w-32 h-auto object-cover max-w-full" 
+                                            style={{ aspectRatio: '16/9' }} 
+                                            loading="lazy" 
                                         />
                                     </div>
 

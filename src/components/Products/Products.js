@@ -28,15 +28,46 @@ const Products = React.memo(({ products = [], amount, title }) => {
     };
 
     const SkeletonCard = () => (
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden col-span-1">
-            <div className="w-full aspect-[4/3] bg-gray-200 rounded-t-2xl animate-pulse"></div>
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden col-span-1 hover:shadow-xl transition-shadow duration-300">
+
+            <div className="w-full aspect-[4/3] bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-2xl animate-pulse relative overflow-hidden">
+
+                <div className="absolute top-2 right-2 w-8 h-8 bg-white/20 rounded-full animate-pulse"></div>
+            </div>
+
             <div className="p-4">
-                <div className="h-4 bg-gray-200 rounded mb-2 animate-pulse"></div>
-                <div className="h-3 bg-gray-200 rounded mb-2 animate-pulse"></div>
-                <div className="h-3 bg-gray-200 rounded animate-pulse"></div>
+                Title
+                <div className="h-5 bg-gray-300 rounded mb-2 animate-pulse w-4/5"></div>
+
+
+                <div className="flex items-center gap-1 mb-3">
+                    <div className="flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                            <div key={i} className="w-3 h-3 bg-gray-400 rounded-full animate-pulse"></div>
+                        ))}
+                    </div>
+                    <div className="h-3 bg-gray-300 rounded w-8 animate-pulse ml-1"></div>
+                </div>
+
+                Price
+                <div className="h-4 bg-gray-300 rounded mb-3 animate-pulse w-1/3 font-semibold"></div>
+
+
+                <div className="space-y-1 mb-4">
+                    <div className="h-3 bg-gray-300 rounded w-full"></div>
+                    <div className="h-3 bg-gray-300 rounded w-5/6"></div>
+                    <div className="h-3 bg-gray-300 rounded w-2/3"></div>
+                </div>
+
+
+                <div className="flex justify-between items-center gap-3">
+                    <div className="h-10 bg-gray-300 rounded-lg animate-pulse flex-1">Add to cart</div>
+                    <div className="w-10 h-10 bg-gray-300 rounded-full animate-pulse">Heart</div>
+                </div>
             </div>
         </div>
     );
+
 
     if (isLoading) {
         return (

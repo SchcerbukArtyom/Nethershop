@@ -66,9 +66,13 @@ const Favorites = () => {
                                     <div className="p-3 sm:p-4 pb-4 sm:pb-6"> 
                                         
                                         <div className='flex flex-col sm:flex-row sm:items-center flex-grow gap-3 sm:gap-4 min-h-0'>
-                                            <div 
-                                                className="flex-shrink-0 w-full sm:w-[150px] h-24 sm:h-auto rounded bg-center bg-cover max-w-full" 
-                                                style={{ backgroundImage: `url(${images[0]})`, aspectRatio: '16/9' }}
+                                           
+                                            <img 
+                                                src={images[0]} 
+                                                alt={title} 
+                                                className="flex-shrink-0 w-full sm:w-[150px] h-auto rounded object-cover max-w-full" 
+                                                style={{ aspectRatio: '16/9' }} 
+                                                loading="lazy" 
                                             />   
 
                                             <div className="flex flex-col items-center sm:items-start flex-grow px-2 sm:px-4 custom-shadow break-words whitespace-normal text-center sm:text-left min-h-0 overflow-hidden"> 
@@ -86,7 +90,7 @@ const Favorites = () => {
                                             
                                             <span className='text-xl custom-shadow text-white sm:text-lg '>Change the size:</span>
                                             <select 
-                                                className="text-white text-base sm:text-lg bg-main-color/80 border border-white/20 rounded custom-shadow px-3 py-1 sm:py-2 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                                                className="text-white text-base sm:text-lg bg-main-color border border-white/20 rounded custom-shadow px-3 py-1 sm:py-2 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500" 
                                                 value={selectedSizes[id] || size || ''}  
                                                 onChange={(e) => setSelectedSizes(prev => ({ ...prev, [id]: e.target.value }))}
                                             >

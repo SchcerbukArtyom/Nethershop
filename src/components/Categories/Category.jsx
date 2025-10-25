@@ -145,7 +145,7 @@ const Category = () => {
     const renderProductsSkeleton = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-5">
             {Array.from({ length: 5 }).map((_, i) => ( 
-                <div key={i} className="flex flex-col bg-white rounded-lg shadow-md p-4">
+                <div key={i} className="flex flex-col w-full aspect-square bg-white rounded-lg shadow-md p-4">
                     Image
                     <div className="bg-gray-300 animate-pulse h-48 w-full rounded mb-4"></div>
                     Title

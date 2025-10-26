@@ -13,6 +13,7 @@ const Product = (item) => {
     const { isLoading } = useSelector(state => state.products);
     const [currentImage, setCurrentImage] = useState('');
     const [currentSize, setCurrentSize] = useState();
+    const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
         if (images?.length) {
@@ -75,6 +76,18 @@ const Product = (item) => {
         dispatch(addItemToCart({ ...item, size: currentSize }));
     };
 
+    const handleAddToCart = () => {
+        if (!currentSize || isInCart) {
+            setShowTooltip(true);
+            setTimeout(() => {
+                setShowTooltip(false);
+            }, 3000);
+        } else {
+            addToCart();
+        }
+    };
+
+
     return (
         <section className="grid col-span-1 lg:grid-cols-3 gap-3 mb-3">
             <div className="col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -98,12 +111,12 @@ const Product = (item) => {
                 </div>
             </div>
 
-            <div className="p-4">
-                <h1 className="text-xl lg:text-2xl font-bold text-white">{title}</h1>
-                <div className="text-lg lg:text-xl font-semibold text-color-blue">{price}$</div>
-                <div className="text-lg lg:text-xl">
-                    <span className="font-medium">Sizes:</span>
-                    <div className="flex gap-x-3 py-3 flex-wrap">
+            <div className="col-span-2 lg:col-span-1 p-4">
+                <h1 className="text-xl text-center lg:text-2xl font-bold text-white">{title}</h1>
+                <div className="text-lg text-center lg:text-xl font-semibold my-5">{price}$</div>
+                <div className="text-lg text-center lg:text-xl">
+                    <span className="font-medium text-center">Sizes:</span>
+                    <div className="flex items-center content-center justify-around gap-x-3 my-5">
                         {SIZES.map((size) => (
                             <div
                                 onClick={() => setCurrentSize(currentSize === size ? null : size)}
@@ -116,18 +129,26 @@ const Product = (item) => {
                         ))}
                     </div>
                 </div>
-                <p className="text-lg text-gray-300 mb-5 leading-relaxed">{description}</p>
-                <div className="flex flex-col sm:flex-row justify-between gap-3 mb-5">
+                <p className="text-lg text-gray-300 mb-16 leading-snug text-justify">{description}</p>
+
+
+
+                <div className="flex flex-col sm:flex-row justify-between gap-8 mb-5 relative">
+                    {showTooltip && (
+                        <div className="absolute top-[-60px] left-0 right-0 text-center bg-main-color text-white px-4 py-2 rounded-md shadow-lg transition-opacity duration-300 opacity-100 z-10">
+                            For add change the size
+                        </div>
+                    )}
                     <button
-                        onClick={addToCart}
-                        disabled={!currentSize || isInCart}
-                        className="w-full sm:w-2/6 text-center custom-border custom-shadow custom-btn disabled:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed transition bg-main-color text-gray-800 hover:bg-color-blue"
+                        onClick={handleAddToCart}
+                        className={`w-full sm:w-2/6 text-center custom-border custom-shadow custom-btn transition bg-main-color text-gray-800 hover:bg-color-blue ${!currentSize || isInCart ? 'opacity-50 cursor-not-allowed' : ''
+                            }`}
                     >
                         {isInCart ? 'Already in cart' : 'Add to cart'}
                     </button>
                     <button
                         onClick={toggleFavorites}
-                        className="w-full sm:w-1/2 text-center custom-border custom-shadow custom-btn bg-color-blue text-gray-800 hover:bg-main-color"
+                        className="w-full sm:w-1/2 text-center custom-border custom-shadow custom-btn bg-color-blue text-gray-800"
                     >
                         {isInFavorites ? 'Remove from favorites' : 'Add to favorites'}
                     </button>

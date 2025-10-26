@@ -95,7 +95,7 @@ const Products = React.memo(({ products = [], amount, title }) => {
                         <Link
                             to={`/products/${id}`}
                             key={id}
-                            className="bg-white overflow-hidden rounded-2xl transition-shadow duration-200 ease-in-out hover:shadow-2xl hover:shadow-amber-100 shadow-lg group block w-[200px] md:w-[256px]"  // Убрал scale и custom-border для лёгкости
+                            className="bg-white overflow-hidden rounded-2xl transition-shadow duration-200 ease-in-out hover:shadow-2xl hover:shadow-amber-100 shadow-lg group block w-[200px] md:w-[256px]"
                         >
                             <img
                                 src={originalSrc}
@@ -103,7 +103,7 @@ const Products = React.memo(({ products = [], amount, title }) => {
                                 loading={index === 0 ? "eager" : "lazy"}
                                 fetchPriority={index === 0 ? "high" : "auto"}
                                 onError={(e) => handleImageError(e, productTitle)}
-                                className="w-full h-32 md:h-48 object-cover object-top rounded-t-2xl group-hover:opacity-90"
+                                className="w-full h-32 md:h-48 object-cover object-center rounded-t-2xl group-hover:opacity-90"
                                 sizes="(max-width: 768px) 200px, 256px"
                             />
                             <div className="p-4">

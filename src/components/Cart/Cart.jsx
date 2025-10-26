@@ -59,18 +59,18 @@ const Cart = () => {
 
                                     
                                     <div className="text-lg sm:text-xl text-white custom-shadow mb-3 lg:mb-0 lg:mr-4 text-center lg:text-right">
-                                        Price for one: {price}$
+                                        Price for one:  {price} $
                                     </div>
 
                                     
-                                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start mb-3 lg:mb-0 lg:mr-4 gap-1 sm:gap-2">
+                                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start my-5 lg:mx-0 lg:mr-4 gap-1 sm:gap-2">
                                         <Dash
                                             className="size-6 sm:size-7 text-white custom-border rounded cursor-pointer custom-shadow hover:bg-white hover:text-black focus:ring-2 focus:ring-white/50 focus:outline-none transition duration-200"
                                             onClick={() => changeQuantity(item, Math.max(1, quantity - 1))}
                                             aria-label="Decrease quantity"
                                             role="button"
                                         />
-                                        <span className="text-lg sm:text-xl text-white mx-0 sm:mx-4 min-w-[2rem] text-center">
+                                        <span className="text-lg sm:text-xl text-white my-5 sm:mx-4 min-w-[2rem] text-center">
                                             {quantity}
                                         </span>
                                         <Plus
@@ -83,17 +83,17 @@ const Cart = () => {
 
                                    
                                     <div className="text-lg sm:text-xl text-white custom-shadow mb-3 lg:mb-0 lg:mr-4 text-center lg:text-right font-semibold">
-                                        Price for all: {price * quantity}$
+                                        Price for all:  {price * quantity} $
                                     </div>
-
                                     
-                                    <Trash3
-                                        className="text-lg sm:text-xl text-white custom-shadow self-center lg:self-end cursor-pointer hover:scale-120 duration-300 ml-0 lg:ml-8"
-                                        style={{ filter: 'drop-shadow(0 0 10px #00f5ff) drop-shadow(0 0 15px #00f5ff)' }}
-                                        onClick={() => removeItem(item.id)}
-                                        aria-label="Remove item from cart"
-                                        role="button"
-                                    />
+                                   <div className="custom-shadow color-main mx-4">
+                                        <Trash3
+                                            className="size-6 md:size-8 text-white justify-self-center hover:text-[#00f5ff] hover:scale-125 transition-transform duration-300 ease-in-out cursor-pointer"
+                                            onClick={() => removeItem(item.id)}
+                                            aria-label="Remove item from cart"
+                                            role="button"
+                                        />
+                                    </div>
                                 </div>
                             );
                         })}
